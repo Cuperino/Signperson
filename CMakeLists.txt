@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(SignPerson LANGUAGES CXX)
+project(Signperson LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -27,25 +27,29 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick LinguistTools REQUIRED)
 
-set(TS_FILES SignPerson_en_US.ts)
+set(TS_FILES Signperson_en_US.ts)
 
 if(ANDROID)
-    add_library(SignPerson SHARED
+    add_library(Signperson SHARED
       main.cpp
+      skingeometry.cpp
+      skingeometry.h
       qml.qrc
       ${TS_FILES}
     )
 else()
-    add_executable(SignPerson
+    add_executable(Signperson
       main.cpp
+      skingeometry.cpp
+      skingeometry.h
       qml.qrc
       ${TS_FILES}
     )
 endif()
 
-target_compile_definitions(SignPerson
+target_compile_definitions(Signperson
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(SignPerson
+target_link_libraries(Signperson
   PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
 
 #qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})

@@ -1,2 +1,2 @@
-# SignPerson
-Record signs from any sign language and save their animations.
+# Signperson
+Record signs from any sign language, playback and save their animations.

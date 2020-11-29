@@ -1,3 +1,5 @@
+
+
 /****************************************************************************
  **
  ** Signperson
@@ -19,37 +21,23 @@
  ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **
  ****************************************************************************/
+import QtQuick 2.2
+import QtQuick.Controls 2.5
 
-import QtQuick
-import QtQuick.Controls
+//import QtQuick3D.Effects 1.0
+//import QtQuick3D.Helpers 6.0
+Page {
+    width: 760
+    height: 520
 
-ApplicationWindow {
-    width: 800
-    height: 600
-    visible: true
-    title: qsTr("Signperson")
-
-    SwipeView {
-        id: swipeView
-        anchors.fill: parent
-        currentIndex: tabBar.currentIndex
-
-        Page1 {
-        }
-
-        Page2 {
-        }
+    header: Label {
+        text: qsTr("Sign Library")
+        font.pixelSize: Qt.application.font.pixelSize * 2
+        padding: 10
     }
 
-    footer: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
-
-        TabButton {
-            text: qsTr("Record")
-        }
-        TabButton {
-            text: qsTr("Library")
-        }
-    }
+    //Label {
+    //    text: qsTr("You are on Page 2.")
+    //    anchors.centerIn: parent
+    //}
 }

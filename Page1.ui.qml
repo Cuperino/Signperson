@@ -1,9 +1,9 @@
+
+
 /****************************************************************************
  **
  ** Signperson
  ** Copyright (C) 2020 Javier O. Cordero Pérez
- **
- ** This file is part of Signperson
  **
  ** This program is free software: you can redistribute it and/or modify
  ** it under the terms of the GNU General Public License as published by
@@ -19,37 +19,42 @@
  ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **
  ****************************************************************************/
+import QtQuick 2.2 as QQ2
+import QtQuick.Controls 2.5
+import QtQuick3D
+import Example
 
-import QtQuick
-import QtQuick.Controls
+//import QtQuick.Scene3D 2.0
+Page {
+    width: 760
+    height: 520
 
-ApplicationWindow {
-    width: 800
-    height: 600
-    visible: true
-    title: qsTr("Signperson")
-
-    SwipeView {
-        id: swipeView
-        anchors.fill: parent
-        currentIndex: tabBar.currentIndex
-
-        Page1 {
-        }
-
-        Page2 {
-        }
+    header: Label {
+        text: qsTr("Record Signs")
+        font.pixelSize: Qt.application.font.pixelSize * 2
+        padding: 10
     }
 
-    footer: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
+    //    Label {
+    //        text: qsTr("You are on Page 1.")
+    //        anchors.centerIn: parent
+    //    }
+    View3D {
+        id: view
+        anchors.fill: parent
 
-        TabButton {
-            text: qsTr("Record")
+        environment: SceneEnvironment {
+            clearColor: "black"
+            backgroundMode: SceneEnvironment.Color
         }
-        TabButton {
-            text: qsTr("Library")
+
+        PerspectiveCamera {
+            id: camera
+            position.z: 3.0
+            clipNear: 1.0
+            clipFar: 10.0
         }
+
+        SimpleSkinning {}
     }
 }
