@@ -10,7 +10,7 @@ Signperson is in early stages of development and is not considered usable. If yo
 Signperson is a part of Javier Cordero's [SignVision Project](http://signvision.org).
 
 # Copyright
-Copyright © 2022 [Javier O. Cordero Pérez](https://javiercordero.info)
+Copyright © 2020 [Javier O. Cordero Pérez](https://javiercordero.info)
 
 # License
 Signperson is free software: you can redistribute it and/or modify
